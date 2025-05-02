@@ -10,6 +10,7 @@ from screens.admin_screen import AdminScreen
 from screens.login_screen import LoginScreen
 from screens.signup_screen import SignupScreen
 
+
 form_class, base_class = load_ui("Rc/ui/main.ui")
 
 class MainWindow(base_class, form_class):
@@ -53,7 +54,7 @@ if __name__ == "__main__":
         ("main_window", MainWindow),
         ("login_screen", LoginScreen),
         ("admin_screen", AdminScreen),
-        ("signup_screen", SignupScreen)
+        ("signup_screen", SignupScreen),
     ]
 
     # 반복문으로 인스턴스 생성, 속성 저장, 위젯에 추가

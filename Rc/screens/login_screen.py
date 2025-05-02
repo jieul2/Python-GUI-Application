@@ -35,7 +35,9 @@ class LoginScreen(base_class, form_class):
     # 로그인 버튼 클릭 시 동작하는 함수
         print(f"Login button clicked   Id = {self.idText.text()} Password = {self.pwText.text()}")
         if self.idText.text() == "admin" and self.pwText.text() == "1234" and self.adminCheck.isChecked() == True:
-            QMessageBox.information(self, "Login", "Login Success")
-            self.widget.setCurrentWidget(self.widget.admin_screen)
+            if QMessageBox.question(self, "Admin", "Admin으로 로그인 하시겠습니까?", QMessageBox.Yes | QMessageBox.No, QMessageBox.Yes):
+                self.widget.setCurrentWidget(self.widget.admin_screen)
+                QMessageBox.information(self, "Login", "Login Success")
+                
         else:
             QMessageBox.information(self, "Login", f"Id = {self.idText.text()} \n Password = {self.pwText.text()}")
