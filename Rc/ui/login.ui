@@ -111,6 +111,13 @@
    </property>
   </widget>
  </widget>
+ <tabstops>
+  <tabstop>idText</tabstop>
+  <tabstop>pwText</tabstop>
+  <tabstop>adminCheck</tabstop>
+  <tabstop>loginButton</tabstop>
+  <tabstop>devButton</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

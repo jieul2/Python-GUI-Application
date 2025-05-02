@@ -51,7 +51,7 @@
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QPushButton" name="loginbutton">
+   <widget class="QPushButton" name="loginButton">
     <property name="geometry">
      <rect>
       <x>580</x>
@@ -69,7 +69,7 @@
      <string>Login</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="regbutton">
+   <widget class="QPushButton" name="regButton">
     <property name="geometry">
      <rect>
       <x>410</x>
