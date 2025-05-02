@@ -10,4 +10,9 @@ form_class, base_class = load_ui("Rc/ui/admin.ui")
 class AdminScreen(base_class, form_class):
     def __init__(self, widget):
         super().__init__()
+        self.setupUi(self)
         self.widget = widget
+        
+
+
+        self.setWindowTitle("RC Admin")
