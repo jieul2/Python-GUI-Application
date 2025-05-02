@@ -5,23 +5,40 @@ from PyQt5 import *
 from widgets.gui_setup import load_ui
 from widgets.widget_manager import widget
 from PyQt5.QtSql import QSqlDatabase, QSqlQuery, QSqlTableModel
-from models.db_connect import connect_to_db
 
 
-form_class, base_class = load_ui("Rc/ui/select.ui")
+form_class, base_class = load_ui("Rc/ui/update.ui")
 
 
-class SelectScreen(base_class, form_class):
+class UpdateScreen(base_class, form_class):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
 
         self.setWindowTitle("RC Admin")
 
-        
+        self.toggle = False
+
+        self.connect_to_db()
         self.setup_model()
         self.model.select()
+        self.upButton.clicked.connect(self.updateButtonClicked)
 
+        
+
+
+
+    def updateButtonClicked(self):
+        self.toggle = not self.toggle
+        self.toggleLabel.setText(str(self.toggle))
+        if self.toggle:
+            self.model.setEditStrategy(QSqlTableModel.OnFieldChange)
+        else:
+            self.model.setEditStrategy(QSqlTableModel.OnManualSubmit)
+
+        self.model.select()
+
+ 
 
     def connect_to_db(self):
         self.db = QSqlDatabase.addDatabase('QSQLITE')
@@ -34,4 +51,5 @@ class SelectScreen(base_class, form_class):
     def setup_model(self):
         self.model = QSqlTableModel(self, self.db)
         self.model.setTable('user')
+        
         self.tableView.setModel(self.model)

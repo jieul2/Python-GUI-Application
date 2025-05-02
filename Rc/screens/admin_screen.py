@@ -5,6 +5,7 @@ from widgets.gui_setup import load_ui
 from widgets.widget_manager import widget
 
 from screens.select_screen import SelectScreen
+from screens.update_screen import UpdateScreen
 
 
 form_class, base_class = load_ui("Rc/ui/admin.ui")
@@ -18,10 +19,15 @@ class AdminScreen(base_class, form_class):
 
 
         self.selectButton.clicked.connect(self.selectButtonClicked)
+        self.updateButton.clicked.connect(self.updateButtonClicked)
 
 
         self.setWindowTitle("RC Admin")
 
     def selectButtonClicked(self):
         self.select_screen = SelectScreen()
+        self.select_screen.show()
+
+    def updateButtonClicked(self):
+        self.select_screen = UpdateScreen()
         self.select_screen.show()
