@@ -17,6 +17,7 @@ class SelectScreen(base_class, form_class):
         self.setupUi(self)
 
         self.setWindowTitle("RC Admin")
+        self.db = connect_to_db()
 
         
         self.setup_model()

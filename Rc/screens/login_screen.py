@@ -9,6 +9,9 @@ from widgets.widget_manager import widget
 from PyQt5.QtSql import QSqlQuery
 from models.db_connect import connect_to_db
 
+from PyQt5.QtGui import QRegExpValidator
+from PyQt5.QtCore import QRegExp
+
 form_class, base_class = load_ui("Rc/ui/login.ui")
 
 class LoginScreen(base_class, form_class):
@@ -28,6 +31,15 @@ class LoginScreen(base_class, form_class):
         #self.adminCheck.stateChanged.connect(self.loginButtonClicked)
         self.idText.returnPressed.connect(self.loginButtonClicked)
         self.pwText.returnPressed.connect(self.loginButtonClicked)
+
+        # 코드에서 Validator 설정
+        reg_exp = QRegExp(r"^[A-Za-z0-9!@#$%^&*()_+\-=\[\]{};':\"\\|,.<>\/?]*$")  # 텍스트라인 입력통제
+        validator = QRegExpValidator(reg_exp)
+
+        # Qt Designer에서 만든 QLineEdit에 적용
+        self.idText.setValidator(validator)
+        self.pwText.setValidator(validator)
+        
 
     def devButtonClicked(self):
         self.idText.setText("admin")
@@ -75,3 +87,9 @@ class LoginScreen(base_class, form_class):
                 QMessageBox.information(self, "Login", "Login Success")
         elif self.idText.text() != "admin" and self.pwText.text() != "1234" and self.adminCheck.isChecked() == True:
             QMessageBox.warning(self, "오류", "어드민 계정이 아닙니다.")
+
+
+
+            
+
+
