@@ -15,7 +15,8 @@ PyQt5와 SQLite를 활용한 사용자 관리 시스템 프로젝트입니다. �
 보안 설정: QRegExpValidator를 이용한 입력값 제한 및 비밀번호 마스킹 처리.
 
 📂 프로젝트 구조
-Plaintext
+
+```Plaintext
 GUIAPP/
 ├── app_main.py # 애플리케이션 메인 엔트리 포인트 (QStackedWidget 관리)
 ├── db/ # 데이터베이스 파일 폴더
@@ -33,15 +34,21 @@ GUIAPP/
 │ ├── gui_setup.py # .ui 파일 로드 유틸리티
 │ └── widget_manager.py # 전역 위젯 인스턴스 관리
 └── README.md # 프로젝트 설명 파일
+```
+
 🛠 설치 및 실행 방법
 의존성 라이브러리 설치
 
-Bash
+```Bash
 pip install PyQt5
+```
+
 애플리케이션 실행
 
-Bash
+```Bash
 python GUIAPP/app_main.py
+```
+
 📝 개발 노트
 UI 로딩: uic.loadUiType을 사용하여 .ui 파일을 동적으로 로드합니다.
 
